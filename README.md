@@ -21,3 +21,10 @@
 
 <p>Please install the gem `email_address` as I use to check if the scrapped adress are valid<./p>
 <p>To do so, type gem install email_address in your terminal.</p>
+
+<p>I also used the dotenv gem in order to hide my mail account keys. I also advise you to create a .env file in the folder with the following lines:</p>
+
+<p>username ="your_username</p>
+<p>password ="your_password"</p>
+
+<p>And do not forget to install the gem if you do not currently use it.</p>
