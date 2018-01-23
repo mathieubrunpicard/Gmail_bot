@@ -16,7 +16,7 @@ module Scrapping_module
 
       nom_region.each do |link|
 
-        if link["title"][0..1] == @user_zip
+        if link["title"][0..1] == @user_zip || link["title"][0..2] == @user_zip
           region_url = "http://annuaire-des-mairies.com/" + link["href"]
           table_region << region_url
         end
@@ -29,13 +29,15 @@ module Scrapping_module
     def get_all_the_urls_of_region_townhalls(array)
       @url_array = array
       table_link = {}
+
       @url_array.each do |region|
         @page = Nokogiri::HTML(open(region))
       end
 
       @region_pages = []
-      @page.xpath("//center/p/a").each do |value|
-        @region_pages << "http://annuaire-des-mairies.com/" + value["href"]
+
+        @page.xpath("//center/p/a").each do |value|
+          @region_pages << "http://annuaire-des-mairies.com/" + value["href"]
       end
       if @region_pages.empty?
         @region_pages << @url_array[0]
@@ -143,14 +145,14 @@ module Scrapping_module
       my_data_hash = scrapper.get_the_email_of_a_townhal_from_its_webpage(my_city_hash)
       #export it as a json
       write_json(my_data_hash)
+      return my_data_hash
     else
       puts "So you don't want to scrap. Bye"
     end
   end
 
-
 end
 end
 
-
-
+scrapper = Scrapping_module::Scrapping.new
+scrapper.all
