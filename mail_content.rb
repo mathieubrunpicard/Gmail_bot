@@ -43,7 +43,8 @@ def send_email(gmail, body, mail_address)
     body body_content
   end
     puts "mail sent to #{mail_address}"
-    sleep(10)
+    #in order to stay below the 10 mail / sec limit
+    sleep(1)
 
   end
 end
