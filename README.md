@@ -17,3 +17,4 @@
 <p>The mail bot asks you if you want to send a predifinite email.</p>
 <p>If you press Yes, then the bot will send the mail to the whole townhall of the selected department.</p>
 
+<p>If you want to use the file, please update your spreadsheet key in the <strong>spreadsheet.rb</strong> script.</p>
