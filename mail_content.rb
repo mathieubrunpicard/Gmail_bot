@@ -37,35 +37,34 @@ def send_email(gmail, body, mail_address)
   gmail.deliver do
     to mail_address
 
-    subject ""
-    text_part do
-      body body_content
-    end
+    subject "[Presentation] - The Hacking Project - Formation d'informatique gratuite"
     html_part do
     content_type 'text/html; charset=UTF-8'
     body body_content
   end
-    puts "mail send to #{mail_address}"
+    puts "mail sent to #{mail_address}"
     sleep(10)
+
   end
 end
 
 def body_content(value)
   value = value
-  return "Bonjour,
-  Je m'appelle Mathieu Brun-Picard et je suis actuellement élève à une formation de code : The Hacking Project (http://thehackingproject.org/).
-  Cette formation est gratuite, ouverte à tous, sans restriction géographique, ni restriction de niveau.
-  Nous apprenons l'informatique en faisant des projets concrets qui nous sont assignés tous les jours, sur lesquel nous planchons en petites équipes autonomes.
-  Le projet du jour est d'envoyer des emails à nos élus locaux pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation gratuite.
+  return "
+  <p>Bonjour,</p>
+  <p>Je m'appelle Mathieu Brun-Picard et je suis actuellement élève à une formation de code : The Hacking Project (http://thehackingproject.org/).</p>
+  <p>Cette formation est gratuite, ouverte à tous, sans restriction géographique, ni restriction de niveau.</p>
+  <p>Nous apprenons l'informatique en faisant des projets concrets qui nous sont assignés tous les jours, sur lesquel nous planchons en petites équipes autonomes.</p>
+  <p>Le projet du jour est d'envoyer des emails à nos élus locaux pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation gratuite.</p>
 
-  Nous vous contactons pour vous parler du projet, et vous dire que vous pouvez ouvrir une cellule à #{value}, où vous pouvez former gratuitement 6 personnes (ou plus), qu'elles soient débutantes, ou confirmées.
-  Le modèle d'éducation de The Hacking Project n'a pas de limite en terme de nombre d'élèves, donc nous serions ravis de travailler avec #{value} !
-  Si vous voulez avoir plus d'information sur la formation, n'hésitez pas à visiter mon blog où je décris le quotidien des étudiants : https://medium.com@mathieu.bp/ .
+  <p>Nous vous contactons pour vous parler du projet, et vous dire que vous pouvez ouvrir une cellule à #{value}, où vous pouvez former gratuitement 6 personnes (ou plus), qu'elles soient débutantes, ou confirmées.</p>
+  <p>Le modèle d'éducation de The Hacking Project n'a pas de limite en terme de nombre d'élèves, donc nous serions ravis de travailler avec #{value} !</p>
+  <p>Si vous voulez avoir plus d'information sur la formation, n'hésitez pas à visiter mon blog où je décris le quotidien des étudiants : https://medium.com@mathieu.bp/ </p>
 
-  Si vous avez des questions sur la formation, n'hésitez pas à me recontacter.
-  Bien à vous,
+  <p>Si vous avez des questions sur la formation, n'hésitez pas à me recontacter.</p>
+  <p>Bien à vous,</p> </br>
 
-  Mathieu Brun-Picard"
+  <p>Mathieu Brun-Picard</p>"
 end
 
   #Last Method to combine all the others methods
