@@ -1,5 +1,10 @@
 require 'json'
 
+#This is my menu with three methods that runs the whole program
+
+#The first method launch the script to get
+#The mail adresses from one specific zipcode
+
 def first_choice
   puts "Do you want to run the script for getting mail adresses ? [Y/N]"
   user_input = gets.chomp
@@ -12,6 +17,9 @@ def first_choice
   end
 end
 
+
+#This second method put all the adresses on a spreadsheet
+#And create a json with the adresses
 def second_choice
 
   puts "Saving all the adresses in a spreadsheet and a json"
@@ -20,10 +28,9 @@ def second_choice
   Write_Spreadsheet.spreadsheet_writing
 
   third_choice
-
-
 end
 
+#the third method send email to the scrapped emails
 def third_choice
   puts "Do you want to send them an email? [Y/N]"
   user_input = gets.chomp
