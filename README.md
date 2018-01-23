@@ -28,3 +28,7 @@
 <p>password ="your_password"</p>
 
 <p>And do not forget to install the gem if you do not currently use it.</p>
+
+<h1>How to use the program ?</h1>
+<p>Just launch send_emails.rb and follow the indications.</p>
+<p>Have fun spamming France's townhall :)</p>
