@@ -18,3 +18,6 @@
 <p>If you press Yes, then the bot will send the mail to the whole townhall of the selected department.</p>
 
 <p>If you want to use the file, please update your spreadsheet key in the <strong>spreadsheet.rb</strong> script.</p>
+
+<p>Please install the gem `email_address` as I use to check if the scrapped adress are valid<./p>
+<p>To do so, type gem install email_address in your terminal.</p>
