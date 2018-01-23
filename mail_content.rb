@@ -2,6 +2,7 @@ require 'gmail'
 require 'dotenv'
 require 'pry'
 require 'json'
+require 'email_address'
 Dotenv.load
 
 #1st Method togo through the json file
@@ -18,9 +19,9 @@ def read_hash(gmail, my_hash)
   @gmail = gmail
 
   @my_hash.each do |key, value|
-    unless value == ""
+    unless value == "" && EmailAddress.valid?(value)
       content = body_content(key)
-
+binding.pry
       send_email(@gmail, content, value)
     end
   end
