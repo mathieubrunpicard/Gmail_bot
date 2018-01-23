@@ -21,7 +21,6 @@ def read_hash(gmail, my_hash)
   @my_hash.each do |key, value|
     unless value == "" && EmailAddress.valid?(value)
       content = body_content(key)
-binding.pry
       send_email(@gmail, content, value)
     end
   end
@@ -47,6 +46,7 @@ def send_email(gmail, body, mail_address)
     body body_content
   end
     puts "mail send to #{mail_address}"
+    sleep(10)
   end
 end
 
