@@ -80,7 +80,7 @@ module Scrapping_module
             rescue NoMethodError
               puts "issue with #{key}"
               binding.pry
-           end
+            end
           else
             begin
               mail_table = page.xpath("//tr[@class = 'txt-primary tr-last'][4]/td[2]")[0].text
@@ -109,34 +109,46 @@ module Scrapping_module
     return my_hash
 
   end
+
   def write_json(my_hash)
     my_hash = my_hash
-
     File.open("townhall.json","w") do |f|
       f.write(my_hash.to_json)
     end
   end
+
   def all
-
+    #This is the website where all the email adress is contained in
     user_input = "http://annuaire-des-mairies.com/"
-    puts "What is the department number you want to scrap ? [01-95 or 971-4]"
-    user_number = gets.chomp
 
+        #Ask the user for a  department number
+        puts "What is the department number you want to scrap ? [01-95 or 971-4]"
+        user_number = gets.chomp
+    #create an instance
     scrapper = Scrapping_module::Scrapping.new
-
-    unless user_input.empty?
-
+    #Launch the script unless there is no input
+    unless user_number.empty?
+      #Launch the first method : get_all_the°urls_of_France
+      #This script get all the urls of one department
+      #And return an array of links
       my_regionarray = scrapper.get_all_the_urls_of_France(user_input,user_number)
-      my_city_hash = scrapper.get_all_the_urls_of_region_townhalls(my_regionarray)
-      puts "Here you go"
-      puts "==========================================================================================="
-
-       my_data_hash = scrapper.get_the_email_of_a_townhal_from_its_webpage(my_city_hash)
-        write_json(my_data_hash)
+            #Then we call the second script : get_all_the_urls_of_region_townhalls
+            #It gets all the url of the townhalls within all cities of a region
+            #(specified by the user input)
+            my_city_hash = scrapper.get_all_the_urls_of_region_townhalls(my_regionarray)
+            puts "==========================================================================================="
+      # Launch the third script
+      #Return a hash with all the email of all the townhall
+      #within the specified department
+      my_data_hash = scrapper.get_the_email_of_a_townhal_from_its_webpage(my_city_hash)
+      #export it as a json
+      write_json(my_data_hash)
     else
       puts "So you don't want to scrap. Bye"
     end
   end
+
+
 end
 end
 
