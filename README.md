@@ -6,5 +6,5 @@
   <li>Mail bot</li>
 </ol>
 
-<p>The scrapping tool get a french department as an input (i.e. between 01 and 95, including 971,972,973 and 974).</p>
+<p>The scrapping tool get a french department as an input (i.e. between 01 and 95, including 971, 972, 973 and 974).</p>
 <p>Then it returns a file "townhall.json" containing all the townhalls name and contact e-mail adress</p>
